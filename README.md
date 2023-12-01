@@ -31,15 +31,13 @@ Include the SQL scripts for creating the database schema.
 
 ## Python Microservice with Flask
 
-Include the Python code for your Flask microservice.
-
-## Usage
+### Usage
 
 Follow these steps to set up and run the microservice:
 
 ### Prerequisites
 
-- Python installed (version X.X.X)
+- Python installed (version 3.11.1)
 - MySQL server installed and running
 - Git installed
 
@@ -48,24 +46,29 @@ Follow these steps to set up and run the microservice:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/social-media-microservice.git
+   git clone https://github.com/omarnazih/NewFeed.git
+   cd NewFeed
    ```
 
-2. Install dependencies:
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On Windows, use `.venv\Scripts\activate`
+   ```
+3. Install dependencies:
 
    ```bash
-   cd social-media-microservice
    pip install -r requirements.txt
    ```
 
-3. Configure MySQL:
+4. Configure MySQL:
 
    - Create a database and configure the `config.py` file with your database credentials.
 
-4. Run the microservice:
+5. Run the microservice:
 
    ```bash
    python app.py
    ```
 
-5. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints.
+6. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints.
