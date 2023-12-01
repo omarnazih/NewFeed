@@ -37,8 +37,7 @@ Follow these steps to set up and run the microservice:
 
 ### Prerequisites
 
-- Python installed (version 3.11.1)
-- MySQL server installed and running
+- Docker installed
 - Git installed
 
 ### Getting Started
@@ -50,25 +49,18 @@ Follow these steps to set up and run the microservice:
    cd NewFeed
    ```
 
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate   # On Windows, use `.venv\Scripts\activate`
-   ```
-3. Install dependencies:
+2. Build and run the Docker containers:
 
    ```bash
-   pip install -r requirements.txt
+   docker-compose up --build
    ```
 
-4. Configure MySQL:
+   This will launch the Flask app and MySQL services. Ensure that your Docker daemon is running.
 
-   - Create a database and configure the `config.py` file with your database credentials.
+3. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints. [Docs on http://localhost:5000/swagger-ui](http://localhost:5000/swagger-ui)
 
-5. Run the microservice:
+4. To stop the containers, press `Ctrl + C` in the terminal where Docker is running, or run:
 
    ```bash
-   python app.py
+   docker-compose down
    ```
-
-6. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints.
