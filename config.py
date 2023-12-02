@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-load_dotenv('.env')
+load_dotenv()
 
 class Config:
     
@@ -17,11 +17,11 @@ class Config:
     OPENAPI_SWAGGER_UI_URL = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
     
     # DB
-    DATABASE_NAME = os.environ.get("DATABASE_NAME")
-    DATABASE_USER = os.environ.get("DATABASE_USER")
-    DATABASE_HOST = os.environ.get("DATABASE_HOST")
-    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
-    DB_PORT = os.environ.get("DB_PORT")
-    DATABASE_URI = os.environ.get("DATABASE_URI")
+    DATABASE_NAME = os.environ.get("DATABASE_NAME", "newfeed-db")
+    DATABASE_USER = os.environ.get("DATABASE_USER", "admin")
+    DATABASE_HOST = os.environ.get("DATABASE_HOST", "localhost")
+    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD", "1234")
+    DB_PORT = os.environ.get("DB_PORT", "3306")
+    DATABASE_URI = os.environ.get("DATABASE_URI", "mysql://admin:1234@localhost:3306/newfeed-db")
 
 
