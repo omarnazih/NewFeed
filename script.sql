@@ -2,8 +2,7 @@
 CREATE TABLE Users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    -- Add other user fields as needed
+    email VARCHAR(255) NOT NULL,    
 );
 
 -- Create Posts table

@@ -27,7 +27,7 @@ The main focus of the business is to create a simple newsfeed app with the follo
 
 ## SQL Implementation
 
-Include the SQL scripts for creating the database schema.
+[script.sql](https://github.com/omarnazih/NewFeed/blob/main/script.sql)
 
 ## Python Microservice with Flask
 
@@ -37,7 +37,8 @@ Follow these steps to set up and run the microservice:
 
 ### Prerequisites
 
-- Docker installed
+- Python >= 3.8
+- Docker installed (for mysql db)
 - Git installed
 
 ### Getting Started
@@ -49,17 +50,38 @@ Follow these steps to set up and run the microservice:
    cd NewFeed
    ```
 
-2. Build and run the Docker containers:
+2. Create and Activate virtual environment
+
+   ```bash
+   python -m venv .venv
+   .\.venv\Scripts\activate
+   ```
+
+3. Install requirements.txt
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Build and run the Docker containers to run mysql db:
 
    ```bash
    docker-compose up --build
    ```
 
-   This will launch the Flask app and MySQL services. Ensure that your Docker daemon is running.
+   This will launch the MySQL db. Ensure that your Docker daemon is running.
 
-3. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints. [Docs on http://localhost:5000/swagger-ui](http://localhost:5000/swagger-ui)
+5. Run Flask service
 
-4. To stop the containers, press `Ctrl + C` in the terminal where Docker is running, or run:
+   ```bash
+   flask run
+   ```
+
+6. The microservice should be running at [http://localhost:5000](http://localhost:5000). You can now use the provided endpoints.
+
+7. Swagger Documentation should also be available at [http://localhost:5000/swagger-ui](http://localhost:5000/swagger-ui)
+
+8. To stop the containers, press `Ctrl + C` in the terminal where Docker is running, or run:
 
    ```bash
    docker-compose down
