@@ -1,7 +1,7 @@
 from flask import g
 from mysql.connector import connect, Error
 
-def get_db(app):
+def get_db(app):  
     if 'db' not in g:
         try:
             g.db = connect(
@@ -38,6 +38,7 @@ def init_db(app):
         CREATE TABLE IF NOT EXISTS Posts (
             post_id INT PRIMARY KEY AUTO_INCREMENT,
             user_id INT,
+            title VARCHAR(255) NOT NULL,
             content TEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             FOREIGN KEY (user_id) REFERENCES Users(user_id)
@@ -91,6 +92,11 @@ def init_db(app):
             FOREIGN KEY (followee_id) REFERENCES Users(user_id)
         )
     """)
+    
+    #Insert Admin user for testing
+    cursor.execute("""
+        Insert into Users (username, email) values ('admin', 'admin@localhost')
+    """)    
 
     db.commit()
     cursor.close()        
